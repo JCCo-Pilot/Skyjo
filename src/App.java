@@ -10,6 +10,9 @@ public class App extends JFrame{
         super();
         setSize(1600,900);
         setVisible(true);
+        Deck d = new Deck();
+        d.check();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
     }
 }
