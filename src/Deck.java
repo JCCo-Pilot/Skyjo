@@ -26,6 +26,7 @@ public class Deck {
         }
         @Override
         public void paintComponent(Graphics g){
+            super.paintComponent(g);
             g.setFont(new Font("Arial",25,20));
             g.drawString(value+"",30,40);
         }
