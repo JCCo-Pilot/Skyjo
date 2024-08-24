@@ -24,6 +24,10 @@ public class Deck {
                 return 0;
             }
         }
+        @Override
+        public void paintComponent(Graphics g){
+            
+        }
         public Dimension getPreferredSize() {return new Dimension(xSize, ySize);}
         public Dimension getMinimumSize() {return new Dimension(xSize, ySize );}
         public Dimension getMaximumSize() {return new Dimension(xSize , ySize );}
