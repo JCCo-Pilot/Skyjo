@@ -1,9 +1,16 @@
 import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import static java.lang.System.*;
 public class Deck {
-    public class Card{
+    public class Card extends JComponent{
         private int value;
-        public Card(int val){value = val;}
+        private int xPos,yPos,xSize,ySize;
+        public Card(int val){
+            super();
+            value = val;
+        }
         public int getValue(){return value;}
         public String toString(){return value+"";}
         public int compareTo(Card c){
