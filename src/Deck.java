@@ -38,7 +38,7 @@ public class Deck {
                 deck.add(new Card(i));
             }
         }
-        
+        Collections.shuffle(deck);
     }
     public void check(){
         out.print(deck);
