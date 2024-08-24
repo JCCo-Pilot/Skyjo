@@ -27,8 +27,10 @@ public class Deck {
         @Override
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            g.setFont(new Font("Arial",25,20));
-            g.drawString(value+"",30,40);
+            if (xPos!=0&&yPos!=0){
+                g.setFont(new Font("Arial",25,20));
+                g.drawString(value+"",30,40);
+            }    
         }
         public Dimension getPreferredSize() {return new Dimension(xSize, ySize);}
         public Dimension getMinimumSize() {return new Dimension(xSize, ySize );}
