@@ -60,4 +60,10 @@ public class Deck {
     public void check(){
         out.print(deck);
     }
+    public void paintAll(Graphics g){
+        for(int i =0;i<deck.size();i++){
+            deck.get(i).paint(g);
+        }
+        g.fillRect(0, 0, 100, 100);
+    }
 }
