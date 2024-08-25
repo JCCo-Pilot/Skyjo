@@ -40,7 +40,7 @@ public class Deck {
                 g.fillRect(0,0,50,100);
                 g.setColor(Color.BLACK);
                 g.setFont(new Font("Arial",25,20));
-                g.drawString(value+"",30,40);  
+                g.drawString(value+"",15,50);  
             }else{
                 g.fillRect(0, 0, WIDTH, HEIGHT);
             }  
