@@ -36,8 +36,11 @@ public class Deck {
             super.paintComponent(g);
             //g.fillRect(0, 0, 50, 100);
             if (xPos!=-1&&yPos!=-1){
+                g.setColor(Color.BLUE);
+                g.fillRect(0,0,50,100);
+                g.setColor(Color.BLACK);
                 g.setFont(new Font("Arial",25,20));
-                g.drawString(value+"",30,40);
+                g.drawString(value+"",30,40);  
             }else{
                 g.fillRect(0, 0, WIDTH, HEIGHT);
             }  
@@ -46,6 +49,8 @@ public class Deck {
         public void setYPos (int y){yPos = y;}
         public int getXPos(){return xPos;}
         public int getYPos(){return yPos;}
+        public int getWidth(){return xSize;}
+        public int getHeight(){return ySize;}
         public Dimension getPreferredSize() {return new Dimension(xSize, ySize);}
         public Dimension getMinimumSize() {return new Dimension(xSize, ySize );}
         public Dimension getMaximumSize() {return new Dimension(xSize , ySize );}
@@ -73,10 +78,14 @@ public class Deck {
             }
         }
         Collections.shuffle(deck);
-        int xPos = 0; int yPos = 0;
+        int xPos = -55; int yPos = 0;
         for (int i =0;i<deck.size();i++){
             deck.get(i).setXPos(xPos+=55);
             deck.get(i).setYPos(yPos);
+            if (i %25==0&&i!=0){
+                yPos+=105;
+                xPos = -55;
+            }
         }
         setBounds();
     }
@@ -90,12 +99,6 @@ public class Deck {
     }
     public void check(){
         out.print(deck);
-    }
-    public void paintAll(Graphics g){
-        for(int i =0;i<deck.size();i++){
-            deck.get(i).paint(g);
-        }
-        //g.fillRect(0, 0, 100, 100);
     }
     public ArrayList<Card>getCards(){
         return deck;
