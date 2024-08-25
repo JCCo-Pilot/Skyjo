@@ -12,5 +12,6 @@ public class MainPanel extends JPanel{
     @Override
     public void paint(Graphics g){
         decks.paintAll(g);
+
     }
 }

@@ -25,11 +25,17 @@ public class Deck {
             }
         }
         @Override
+        public void paint(Graphics g){
+            paintComponent(g);
+        }
+        @Override
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            if (xPos!=0&&yPos!=0){
+            if (xPos!=-1&&yPos!=-1){
                 g.setFont(new Font("Arial",25,20));
                 g.drawString(value+"",30,40);
+            }else{
+                g.fillRect(0, 0, WIDTH, HEIGHT);
             }    
         }
         public Dimension getPreferredSize() {return new Dimension(xSize, ySize);}
@@ -44,6 +50,7 @@ public class Deck {
     }
     private ArrayList<Card>deck = new ArrayList<>();
     public Deck(){
+        //deck.add(new Card(0));
         for(int i =0;i<5;i++){
             deck.add(new Card(-2));
             deck.add(new Card(0));
@@ -66,6 +73,9 @@ public class Deck {
         for(int i =0;i<deck.size();i++){
             deck.get(i).paint(g);
         }
-        g.fillRect(0, 0, 100, 100);
+        //g.fillRect(0, 0, 100, 100);
+    }
+    public ArrayList<Card>getCards(){
+        return deck;
     }
 }
