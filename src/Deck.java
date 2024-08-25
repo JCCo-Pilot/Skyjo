@@ -34,15 +34,18 @@ public class Deck {
         @Override
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            //if (xPos!=-1&&yPos!=-1){
-                //g.setFont(new Font("Arial",25,20));
-                //g.drawString(value+"",30,40);
-            //}else{
+            //g.fillRect(0, 0, 50, 100);
+            if (xPos!=-1&&yPos!=-1){
+                g.setFont(new Font("Arial",25,20));
+                g.drawString(value+"",30,40);
+            }else{
                 g.fillRect(0, 0, WIDTH, HEIGHT);
-            //    
+            }  
         }
         public void setXPos(int x){xPos = x;}
         public void setYPos (int y){yPos = y;}
+        public int getXPos(){return xPos;}
+        public int getYPos(){return yPos;}
         public Dimension getPreferredSize() {return new Dimension(xSize, ySize);}
         public Dimension getMinimumSize() {return new Dimension(xSize, ySize );}
         public Dimension getMaximumSize() {return new Dimension(xSize , ySize );}
@@ -72,8 +75,17 @@ public class Deck {
         Collections.shuffle(deck);
         int xPos = 0; int yPos = 0;
         for (int i =0;i<deck.size();i++){
-            deck.get(i).setXPos(xPos);
+            deck.get(i).setXPos(xPos+=55);
             deck.get(i).setYPos(yPos);
+        }
+        setBounds();
+    }
+    public void setBounds(){
+        for (int i =0;i<deck.size();i++){
+            Card temp = deck.get(i);
+            temp.setBounds(temp.getXPos(),temp.getYPos(),temp.getPreferredSize().width,temp.getPreferredSize().height);
+            temp.setVisible(true);
+            deck.set(i,temp);
         }
     }
     public void check(){
