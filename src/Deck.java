@@ -10,8 +10,11 @@ public class Deck {
         public Card(int val){
             super();
             value = val;
-            xPos = 0; yPos = 0;
-            xSize = 50; ySize = 100;
+            xPos = -1; yPos = -1;
+            xSize = 500; ySize = 1000;
+            setLayout(null);
+            addMouseListener(this);
+            
         }
         public int getValue(){return value;}
         public String toString(){return value+"";}
@@ -31,13 +34,15 @@ public class Deck {
         @Override
         public void paintComponent(Graphics g){
             super.paintComponent(g);
-            if (xPos!=-1&&yPos!=-1){
-                g.setFont(new Font("Arial",25,20));
-                g.drawString(value+"",30,40);
-            }else{
+            //if (xPos!=-1&&yPos!=-1){
+                //g.setFont(new Font("Arial",25,20));
+                //g.drawString(value+"",30,40);
+            //}else{
                 g.fillRect(0, 0, WIDTH, HEIGHT);
-            }    
+            //    
         }
+        public void setXPos(int x){xPos = x;}
+        public void setYPos (int y){yPos = y;}
         public Dimension getPreferredSize() {return new Dimension(xSize, ySize);}
         public Dimension getMinimumSize() {return new Dimension(xSize, ySize );}
         public Dimension getMaximumSize() {return new Dimension(xSize , ySize );}
@@ -65,6 +70,11 @@ public class Deck {
             }
         }
         Collections.shuffle(deck);
+        int xPos = 0; int yPos = 0;
+        for (int i =0;i<deck.size();i++){
+            deck.get(i).setXPos(xPos);
+            deck.get(i).setYPos(yPos);
+        }
     }
     public void check(){
         out.print(deck);

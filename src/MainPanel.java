@@ -8,6 +8,7 @@ public class MainPanel extends JPanel{
     public MainPanel(){
         super();
         setVisible(true);
+        setLayout(null);
     }
     @Override
     public void paint(Graphics g){
