@@ -5,6 +5,7 @@ import java.awt.event.*;
 import static java.lang.System.*;
 public class MainPanel extends JPanel{
     private Deck decks = new Deck();
+    private ArrayList<Player>players = new ArrayList<>();
     public MainPanel(){
         super();
         for (int i =0;i<decks.getCards().size();i++){

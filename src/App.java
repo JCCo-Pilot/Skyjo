@@ -9,8 +9,8 @@ public class App extends JFrame{
     public App(){
         super();
         setSize(1600,900);
-        MainPanel mp = new MainPanel();
-        add(mp);
+        StartPanel sp = new StartPanel();
+        add(sp);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
