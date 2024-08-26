@@ -29,7 +29,17 @@ public class StartPanel extends JPanel implements ActionListener{
         
     }
     public void actionPerformed(ActionEvent e){
+        if (e.getSource()==add){
+            numPlayers++;
+        }else if (e.getSource()==subtract){
 
+        }else if (e.getSource()==start){
+
+        }
+        checkVisible();
+    }
+    public void paint(Graphics g){
+        
     }
     public void checkVisible(){
         if (numPlayers==2){
