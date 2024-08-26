@@ -5,17 +5,36 @@ import java.awt.event.*;
 import static java.lang.System.*;
 public class StartPanel extends JPanel implements ActionListener{
     private JButton start = new JButton("Start");
-    private JButton add = new JButton();
-    private JButton subtract = new JButton();
-    private int numPlayers = 0;
+    private JButton add = new JButton("Add 1 Player");
+    private JButton subtract = new JButton("Subtract 1 Player");
+    private int numPlayers = 2;
     public StartPanel(){
         setLayout(null);
-        start.setBounds(100,100,150,50);
+        start.setBounds(720,600,150,50);
         start.setVisible(true);
         add(start);
+        add.setBounds(920,600,150,50);
+        add.setVisible(true);
+        add(add);
+        subtract.setBounds(520,600,150,50);
+        add(subtract);
+        //checkVisible();
         setVisible(true);
+        
     }
     public void actionPerformed(ActionEvent e){
 
+    }
+    public void checkVisible(){
+        if (numPlayers==2){
+            subtract.setVisible(false);
+        }else{
+            subtract.setVisible(true);
+        }
+        if (numPlayers==8){
+            add.setVisible(false);
+        }else{
+            add.setVisible(true);
+        }
     }
 }
